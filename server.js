@@ -1,12 +1,15 @@
 const express = require("express");
 const cors = require("cors");
 const app = express();
+const models = require("./models");
 const port = 8080;
 
 app.use(express.json());
 app.use(cors());
 
 app.get("/products", (req, res) => {
+  const query = req.query;
+  console.log("QUERY", query);
   res.send({
     products: [
       {
@@ -35,9 +38,21 @@ app.get("/products", (req, res) => {
 });
 
 app.post("/products", (req, res) => {
-  res.send("상품이 등록 되었습니다.");
+  const body = req.body;
+  res.send({
+    body,
+  });
 });
 
 app.listen(port, () => {
   console.log("그랩의 서버가 돌아가고 있습니다.");
+  models.sequelize
+    .sync()
+    .then(() => {
+      console.log("DB 연결 성공!");
+    })
+    .catch((err) => {
+      console.log(error);
+      process.exit();
+    });
 });
