@@ -20,6 +20,11 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.STRING(300),
       allowNull: true,
     },
+    soldOut: {
+      type: DataTypes.INTEGER(1),
+      allowNull: false,
+      defualtValue: 0,
+    },
   });
   return product;
 };
