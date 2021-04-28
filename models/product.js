@@ -23,7 +23,7 @@ module.exports = function (sequelize, DataTypes) {
     soldOut: {
       type: DataTypes.INTEGER(1),
       allowNull: false,
-      defualtValue: 0,
+      defaultValue: 0,
     },
   });
   return product;

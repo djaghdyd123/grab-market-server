@@ -57,7 +57,7 @@ app.post("/products", (req, res) => {
       });
     })
     .catch((error) => {
-      console.log("에러가 발생하였습니다.");
+      console.log(error, "에러가 발생하였습니다.");
     });
 });
 app.get("/products/:id", (req, res) => {
